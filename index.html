@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Name Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .name {
+            font-size: 6vw;
+            padding: 20px;
+            border: 1px solid #6c757d;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="name"></div>
+    <script>
+        fetch('http://localhost:5000/generate_name?length=5')
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector('.name').textContent = data.name;
+            });
+    </script>
+</body>
+</html>
+
